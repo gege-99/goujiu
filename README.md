@@ -4,5 +4,5 @@
     -vue-router
     -vuex
     -JS组件
-    -UI组件
+    -UI组件666
     -vue-touch
