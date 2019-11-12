@@ -13,7 +13,7 @@ server.interceptors.request.use((config)=>{
     if(config.method == "get"){
         config.params={...config.data}
     }
-
+    return config
     //config.headers["content-type"]="applicetion/json"
     //config.headers["token"]=""
 }),(err)=>{
