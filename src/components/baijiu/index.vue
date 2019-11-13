@@ -1,12 +1,14 @@
 <template>
-  <div id="box">
-    <div class="box_con" v-for="(item,index) in pic" :key="index">
+  <df-scroll>
+    <div id="box">
+      <div class="box_con" v-for="(item,index) in pic" :key="index">
         <img :src="item.Pic" />
         <p>{{item.ProductName}}</p>
         <div class="timebuy">限时抢购</div>
         <span>{{item.ActivityMoney}}</span>
       </div>
-  </div>
+    </div>
+  </df-scroll>
 </template>
 
 <script>

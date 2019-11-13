@@ -49,12 +49,13 @@ const router = new VueRouter({
             }
         },
         {
-            path: "/detailed",
+            path: "/detailed/:id",
             name: "detailed",
             component: _ => import("@pages/detailed"),
             meta: {
                 flag: false
-            }
+            },
+            props:true
         }
     ]
 })
