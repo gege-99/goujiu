@@ -23,6 +23,10 @@
 <script>	
 import http from "@utils/request"
 import {allshopApi} from "@api/all_shop"
+import Vue from 'vue';
+import { IndexBar, IndexAnchor } from 'vant';
+
+Vue.use(IndexBar).use(IndexAnchor);
 	export default {
 		name:"Allshop",
 		data(){

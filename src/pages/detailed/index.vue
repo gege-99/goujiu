@@ -309,7 +309,7 @@ export default {
   background: #fff;
   margin-top: 0.46rem;
 }
-
+  
 .list .list_con {
   width: 33.3%;
   float: left;
