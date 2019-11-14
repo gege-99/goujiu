@@ -1,9 +1,11 @@
 export default {
+
     path: "/shouye",
     name: "shouye",
     component: _ => import("@pages/shouye"),
     meta: {
-        flag: true
+        flag: true,
+        requiredAuth:false,
     },
     children:[
         {

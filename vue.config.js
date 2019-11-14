@@ -26,6 +26,7 @@ module.exports={
                 "@router":path.join(__dirname,"./src/router"),
                 "@store":path.join(__dirname,"./src/store"),
                 "@utils":path.join(__dirname,"./src/utils"),
+           
             }
         }
     }
