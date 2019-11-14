@@ -218,37 +218,7 @@
 </template>
 
 <script>
-import { xq } from "@api/detailed";
-export default {
-  props: ["id"],
-  data() {
-    return {
-      xqlist: [],
-      pic: []
-    };
-  },
-  async created() {
-    console.log(this.id);
-    this.handlePostList(this.id);
-  },
-  methods: {
-    async handlePostList(Id) {
-      let data = await xq(Id);
-      this.xqlist = data.data;
-      console.log(this.xqlist);
-      
-      this.handlePic(this.xqlist);
-      console.log(this.pic)
-    },
-    handlePic() {
-        var obj = {};
-        obj.Pic = " http://img0.gjw.com/product/" + this.xqlist.Pic;
-        obj.ProductName = this.xqlist.ProductName;
-        obj.id = this.xqlist;
-        this.pic.push(obj);
-    }
-  }
-};
+export default {};
 </script>
 
 <style  scoped>

@@ -1,40 +1,25 @@
 <template>
-  <div class="big">
-    <div id="box" ref="box">
-      <!-- <div class="scrollbox"> -->
-        <router-link
-          href="#"
-          class="box_con"
-          v-for="item in pic"
-          :key="item.id"
-          :to="'/detailed/'+item.id"
-        >
-          <img :src="item.Pic" />
-          <p>{{item.ProductName}}</p>
-          <div class="timebuy">限时抢购</div>
-          <span>{{item.ActivityMoney}}</span>
-        </router-link>
+  <div id="box">
+    <div class="box_con" v-for="(item,index) in pic" :key="index">
+        <img :src="item.Pic" />
+        <p>{{item.ProductName}}</p>
+        <div class="timebuy">限时抢购</div>
+        <span>{{item.ActivityMoney}}</span>
       </div>
-    <!-- </div> -->
   </div>
 </template>
 
 <script>
 import { miaosha, nae } from "@api/shouye";
-import BScroll from "better-scroll";
 console.log(miaosha);
 export default {
-  name: "jingxuan",
+  name: "shouye",
   data() {
     return {
       naeList: [],
       pic: []
     };
   },
-  mounted() {
-    new BScroll(this.$refs.box);
-  },
-  // :to="{path:'/detailed'+item.id }"
   async created() {
     //   let data = await miaosha(0);
     //   console.log(data.data[0].AppSeckill.AppSeckillProList)
@@ -43,13 +28,10 @@ export default {
   methods: {
     async handleGetNaeList(pagesize) {
       let data = await nae(pagesize);
-      console.log(this.$refs.box.clientTop);
       this.naeList = data.data;
-      // this.naeList = [...this.naeList,...data.data];
-      
       this.handlePic();
       //   console.log(this.naeList)
-      //   console.log(this.pic);
+    //   console.log(this.pic);
     },
     handlePic() {
       for (var i = 0; i < this.naeList.length; i++) {
@@ -61,7 +43,6 @@ export default {
         obj.Pic = " http://img0.gjw.com/product/" + this.naeList[i].Pic;
         // obj.Pic=arr[parseInt(Math.random()*3)]
         obj.ProductName = this.naeList[i].ProductName;
-        obj.id=this.naeList[i].ProductId
         this.pic.push(obj);
         //   http://img0.gjw.com/product/2019/1109/0b990cd1c97046a082ad2efc82e5cc0e_2.jpg
       }

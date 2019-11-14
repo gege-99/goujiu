@@ -1,4 +1,5 @@
 <template>
+
   <div class="page">
     <!-- 第一部分 -->
     <div class="img">
@@ -98,12 +99,24 @@
     <!-- 第六部分 -->
 
     <div class="list">
-      <router-link tag="div" class="a" to="/shouye/jingxuan">精选</router-link>
-      <router-link tag="div" class="a" to="/shouye/baijiu">白酒</router-link>
-      <router-link tag="div" class="a" to="/shouye/putao">葡萄酒</router-link>
-      <router-link tag="div" class="a" to="/shouye/qingyang">清酒洋酒</router-link>
-      <router-link tag="div" class="a" to="/shouye/huangpi">黄酒啤酒</router-link>
-      <router-link tag="div" class="a" to="/shouye/laojiu">年份老酒</router-link>
+      <router-link tag="div"  class="a" to="/shouye/jingxuan">
+          精选
+      </router-link>
+      <router-link tag="div"  class="a" to="/shouye/baijiu">
+          白酒
+      </router-link>
+      <router-link tag="div"  class="a" to="/shouye/putao">
+          葡萄酒
+      </router-link>
+      <router-link tag="div"  class="a" to="/shouye/qingyang">
+          清酒洋酒
+      </router-link>
+      <router-link tag="div"  class="a" to="/shouye/huangpi">
+          黄酒啤酒
+      </router-link>
+      <router-link tag="div"  class="a" to="/shouye/laojiu">
+          年份老酒
+      </router-link>
     </div>
     <router-view></router-view>
     <!-- <div id="box">
@@ -113,13 +126,12 @@
         <div class="timebuy">限时抢购</div>
         <span>￥759</span>
       </div>
-    </div>-->
+    </div> -->
   </div>
 </template>
 <script>
 import { miaosha, nae } from "@api/shouye";
-
-// console.log(miaosha);
+console.log(miaosha);
 export default {
   name: "shouye",
   data() {
@@ -139,21 +151,21 @@ export default {
     async handlemiaosha(userid) {
       let data = await miaosha(userid);
       this.miaosha = data.data[0].AppSeckill.AppSeckillProList;
-      //   console.log(this.miaosha);
+    //   console.log(this.miaosha);
       for (var i = 0; i < this.miaosha.length; i++) {
         this.miaosha[i].Pic =
           " http://img0.gjw.com/product/" + this.miaosha[i].imgUrl;
       }
       //  http://img0.gjw.com/product/2015/1015/538ef0ca27c24dd0ad00ec1310fe7a5b.jpg
       //   console.log(this.naeList)
-      //   console.log(this.miaosha);
+    //   console.log(this.miaosha);
     },
     async handleGetNaeList(pagesize) {
       let data = await nae(pagesize);
       this.naeList = data.data;
       this.handlePic();
       //   console.log(this.naeList)
-      //   console.log(this.pic);
+    //   console.log(this.pic);
     },
     handlePic() {
       for (var i = 0; i < this.naeList.length; i++) {
@@ -179,7 +191,7 @@ body,
 .page {
   overflow: auto;
 }
-.list .router-link-active {
+.list .a .router-link-active {
   color: #ef4238;
   border-bottom: 2px #ef4238 solid;
 }
@@ -287,7 +299,6 @@ body,
   display: flex;
   flex-direction: row;
   position: relative;
-  margin-left: 0.2rem;
 }
 
 .good .show img {
@@ -296,21 +307,14 @@ body,
 }
 
 .good .show p {
-  margin-left: 0.05rem;
+  margin-left: 0.2rem;
   font-weight: 800;
-  height: 0.6rem;
+  height: 0.4rem;
   line-height: 0.2rem;
   width: 1.4rem;
   overflow: hidden;
-  white-space: pre-wrap;
-  /* width: 150px; */
   text-overflow: ellipsis;
-  /* white-space: nowrap; */
-  color: #000;
-   /* -webkit-line-clamp:2;
-  word-break:break-all;
-   display:-webkit-box;
-    -webkit-box-orient:vertical; */
+  white-space: nowrap;
 }
 
 .good .show .q {
@@ -423,22 +427,13 @@ body,
   white-space: nowrap;
   display: block;
   float: left;
-  text-align: center;
 }
-.list .a:active {
-  color: #c33;
-  border-bottom: 0.02rem solid #c33;
+.list .a:active{
+    
+    color: #c33;
+    border-bottom: 0.02rem solid #c33
 }
 #box {
-  width: 3.65rem;
-  margin-left: 0.05rem;
-  height: 27.19rem;
-  justify-content: space-between;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-.scrollbox {
   width: 3.65rem;
   margin-left: 0.05rem;
   min-height: 2rem;
@@ -447,6 +442,7 @@ body,
   flex-wrap: wrap;
   flex-direction: row;
 }
+
 #box .box_con {
   width: 1.775rem;
   height: 2.67rem;
@@ -497,3 +493,4 @@ body,
 }
 </style>
 
+>>>>>>> 1deb613654bfd3cee917e0ee2d27b182f384173b
