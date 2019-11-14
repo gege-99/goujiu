@@ -1,5 +1,5 @@
 <template>
-  <df-scroll>
+  <!-- <df-scroll> -->
     <div id="box">
       <div class="box_con" v-for="(item,index) in pic" :key="index">
         <img :src="item.Pic" />
@@ -8,7 +8,7 @@
         <span>{{item.ActivityMoney}}</span>
       </div>
     </div>
-  </df-scroll>
+  <!-- </df-scroll> -->
 </template>
 
 <script>

@@ -32,7 +32,7 @@ export default {
     };
   },
   mounted() {
-    new BScroll(this.$refs.box);
+    // new BScroll(this.$refs.box);
   },
   // :to="{path:'/detailed'+item.id }"
   async created() {

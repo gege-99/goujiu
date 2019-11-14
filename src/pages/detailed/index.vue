@@ -2,18 +2,19 @@
   <div class="page">
     <div class="select">
       <div class="back">&lt;</div>
-      <div class="title">中国 王朝 红葡萄酒 750ml</div>
+      <div class="title" v-for="item in pic" >{{item.ProductName}}</div>
     </div>
     <div class="list">
       <div class="list_con">商品</div>
       <div class="list_con">详情</div>
       <div class="list_con">评价</div>
     </div>
-    <div class="banner">
-      <img src="http://img0.gjw.com/product//2012/0906/d1c7feedacce499e8545280ab2b26f33_4.jpg" alt />
+    <div class="banner" v-for="item in pic" :key="item.pic">
+      <!-- <img src="http://img0.gjw.com/product//2012/0906/d1c7feedacce499e8545280ab2b26f33_4.jpg" alt /> -->
+      <img :src="item.Pic" />
     </div>
-    <div class="_title">
-      <span>中国 王朝 红葡萄酒 750ml</span>
+    <div class="_title" v-for="item in pic" :key="item.ProductName">
+      <span>{{item.ProductName}}</span>
       <div class="gz">
         <img src="img/xin.png" alt />
         关注
@@ -224,7 +225,8 @@ export default {
   data() {
     return {
       xqlist: [],
-      pic: []
+      pic: [],
+      // pic: {}
     };
   },
   async created() {
@@ -236,16 +238,18 @@ export default {
       let data = await xq(Id);
       this.xqlist = data.data;
       console.log(this.xqlist);
-      
+
       this.handlePic(this.xqlist);
-      console.log(this.pic)
+      console.log(this.pic[0]);
     },
     handlePic() {
-        var obj = {};
-        obj.Pic = " http://img0.gjw.com/product/" + this.xqlist.Pic;
-        obj.ProductName = this.xqlist.ProductName;
-        obj.id = this.xqlist;
-        this.pic.push(obj);
+      var obj = {};
+      obj.Pic = " http://img0.gjw.com/product/" + this.xqlist.Pic;
+      obj.ProductName = this.xqlist.ProductName;
+      obj.id = this.xqlist;
+      this.pic.push(obj);
+      // this.pic.ProductName = this.xqlist.ProductName;
+      // this.pic.pic = " http://img0.gjw.com/product/" + this.xqlist.Pic;
     }
   }
 };
@@ -278,16 +282,22 @@ export default {
   left: 0;
 }
 .title {
-  width: 100%;
-  display: flex;
+  width: 3.3rem;
+  line-height: 0.46rem;
+  /* display: flex; */
   height: 0.46rem;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   text-align: center;
   margin: 0 auto;
   font-size: 0.16rem;
   font-weight: 550;
   color: #000;
+  margin-left: 0.46rem;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .list {
   /* position: -webkit-sticky; */
@@ -309,6 +319,9 @@ export default {
   height: 0.44rem;
   font-size: 0.14rem;
   background: #fff;
+}
+.banner {
+  height: 3.75rem;
 }
 .banner img {
   width: 3.75rem;
