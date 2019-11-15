@@ -9,7 +9,7 @@
 				<div class="title">
 					B
 				</div>
-				<div class="list_home_shop" v-for="item in allshopList">
+				<div class="list_home_shop" v-for="item in allshopList" :key="item">
 					<div>{{item.TypeName}}</div>
 				</div>
 			</div>

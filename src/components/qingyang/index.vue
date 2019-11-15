@@ -1,11 +1,21 @@
 <template>
-  <div id="box">
-    <div class="box_con" v-for="(item,index) in pic" :key="index">
-        <img :src="item.Pic" />
-        <p>{{item.ProductName}}</p>
-        <div class="timebuy">限时抢购</div>
-        <span>{{item.ActivityMoney}}</span>
+  <div class="big">
+    <div id="box" ref="box">
+      <!-- <div class="scrollbox"> -->
+        <router-link
+          href="#"
+          class="box_con"
+          v-for="item in pic"
+          :key="item.id"
+          :to="'/detailed/'+item.id"
+        >
+          <img :src="item.Pic" />
+          <p>{{item.ProductName}}</p>
+          <div class="timebuy">限时抢购</div>
+          <span>{{item.ActivityMoney}}</span>
+        </router-link>
       </div>
+    <!-- </div> -->
   </div>
 </template>
 
@@ -33,6 +43,7 @@ export default {
         var obj = {};
         obj.Pic = " http://img0.gjw.com/product/" + this.naeList[i].Pic;
         obj.ProductName = this.naeList[i].ProductName;
+        obj.id=this.naeList[i].ProductId
         this.pic.push(obj);
         }
     }

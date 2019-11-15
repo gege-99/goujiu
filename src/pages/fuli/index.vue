@@ -1,6 +1,6 @@
 <template>
-    <div >
-        3666
+    <div  class="page">
+2
     </div>
 </template>
 
@@ -10,6 +10,6 @@
 
 <script>
 export default {
-    name:"Login"
+    name:"Fuli"
 }
 </script>

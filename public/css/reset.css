@@ -10,20 +10,18 @@ address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:norm
 
 ul, ol ,li{ list-style:none; }
 
-i{font-style:normal;}
-
 body { color:#333; font:12px "SimSun","宋体","Arial Narrow",HELVETICA; background:#fff;}
 
 a { color:#666; text-decoration:none; }
 /*清除浮动*/
 .clear{clear:both}
 *{box-sizing:border-box}
-body,html{
+body,html,#app{
     height: 100%;
     overflow: hidden;
 }
-#app{
-	height:100%;
+html{
+    font-size: 26.67vw;
 }
 
 
