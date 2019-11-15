@@ -7,12 +7,16 @@
         src="http://img0.gjw.com/famous/2018/1210/8f63d19948434358961f84ec1aba5726.jpg"
         alt
       />
-      <a href="#" class="select iconfont">
+      <router-link
+        tag="div"
+        to="/search-in"
+       href="#" class="select iconfont"
+       >
         <div class="header">
           &#xe633;
           <span>请输入商品名称</span>
         </div>
-      </a>
+      </router-link>
     </div>
     <!-- 第二部分 -->
     <div class="mes">
@@ -113,14 +117,6 @@
       <router-link tag="div" class="a" to="/shouye/laojiu">年份老酒</router-link>
     </div>
     <router-view></router-view>
-    <!-- <div id="box">
-      <div class="box_con" v-for="(item,index) in pic" :key="index">
-        <img :src="item.Pic" />
-        <p>{{item.ProductName}}</p>
-        <div class="timebuy">限时抢购</div>
-        <span>￥759</span>
-      </div>
-    </div>-->
   </div>
 </template>
 <script>
@@ -140,8 +136,6 @@ export default {
     };
   },
   async created() {
-    //   let data = await miaosha(0);
-    //   console.log(data.data[0].AppSeckill.AppSeckillProList)
     this.handleGetNaeList(20);
     this.handlemiaosha(0);
   },
@@ -154,30 +148,20 @@ export default {
         this.miaosha[i].Pic =
           " http://img0.gjw.com/product/" + this.miaosha[i].imgUrl;
       }
-      //  http://img0.gjw.com/product/2015/1015/538ef0ca27c24dd0ad00ec1310fe7a5b.jpg
-      //   console.log(this.naeList)
-      //   console.log(this.miaosha);
     },
     async handleGetNaeList(pagesize) {
       let data = await nae(pagesize);
       this.naeList = data.data;
       this.handlePic();
-      //   console.log(this.naeList)
-      //   console.log(this.pic);
     },
     handlePic() {
       for (var i = 0; i < this.naeList.length; i++) {
         var obj = {};
-        //   var arr=["http://img0.gjw.com/product/2019/1108/67654091ed514b27a8b4d50595cc7121_2.jpg",
-        //       "http://img0.gjw.com/product/2019/1024/c150e1df77d74a6986f09c5e7918d799_2.jpg",
-        //       "http://img0.gjw.com/product/2019/1109/f7cdd2e842a14bb3ad426bd13614b203_2.jpg"
-        //   ]
         obj.Pic = " http://img0.gjw.com/product/" + this.naeList[i].Pic;
         // obj.Pic=arr[parseInt(Math.random()*3)]
         obj.ProductName = this.naeList[i].ProductName;
         this.pic.push(obj);
-        //   http://img0.gjw.com/product/2019/1109/0b990cd1c97046a082ad2efc82e5cc0e_2.jpg
-      }
+        }
     }
   }
 };

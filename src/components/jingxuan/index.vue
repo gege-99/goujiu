@@ -23,7 +23,7 @@
 
 <script>
 import { miaosha, nae } from "@api/shouye";
-import BScroll from "better-scroll";
+// import BScroll from "better-scroll";
 console.log(miaosha);
 export default {
   name: "jingxuan",
