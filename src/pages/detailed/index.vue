@@ -236,7 +236,7 @@ export default {
   background: #fff;
   z-index: 20;
 }
-
+  
 .list .list_con {
   width: 33.3%;
   float: left;
