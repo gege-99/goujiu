@@ -4,7 +4,7 @@ import axios from "axios";
 Vue.use(Vuex);
  
 let state = {
-   
+   count:1
 }
 
 
@@ -14,7 +14,9 @@ let actions = {
 
 
 let mutations = {
-    
+    incount(){
+    	++state.count
+    }
 }
 
 

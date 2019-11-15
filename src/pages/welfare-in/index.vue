@@ -7,7 +7,7 @@
 				【购酒网】购酒福利页面
 			</p>
 		</div>
-		<div class="body">
+		<div class="body-wel">
 			<img src="http://img0.gjw.com/Minisite/2019/xy/1102/lp_01.jpg" class="img1">
 			<img src="http://img0.gjw.com/Minisite/2019/xy/1102/lp_02.jpg" class="img2">
 			<img src="http://img0.gjw.com/Minisite/2019/xy/1102/03.jpg" class="img3">
@@ -80,50 +80,50 @@ html{
 	margin:0 0.75rem;
 	font-size:0.16rem;
 }
-.body{
+.body-wel{
 	height:auto;
 	width:100%;
 	padding-top:0.5rem;
 	position:absolute;
 
 }
-.body .img1{
+.body-wel .img1{
 	height:3.68rem;
 	width:100%;
 	margin:0;
 }
-.body .img2{
+.body-wel .img2{
 	height:0.4614rem;
 	width:100%;
 }
-.body .img3{
+.body-wel .img3{
 	height:1.9217rem;
 	width:100%;
 }
-.body .img4{
+.body-wel .img4{
 	height:1.9859rem;
 	width:100%;
 }
-.body .wrap{
+.body-wel .wrap{
 	height:0.9695rem;
 	width:100%;
 	display: flex;
 }
-.body .wrap img{
+.body-wel .wrap img{
 	height:0.9695rem;
 	width:50%;
 }
-.body .img6{
+.body-wel .img6{
 	height:0.8878rem;
 	width:100%;
 }
-.body .big_box{
+.body-wel .big_box{
 	height:auto;
 	width:100%;
 	display: flex;
 	flex-wrap: wrap;
 }
-.body .big_box img{
+.body-wel .big_box img{
 	width:50%;
 }
 </style>

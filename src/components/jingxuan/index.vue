@@ -20,10 +20,6 @@ export default {
       pic: []
     };
   },
-  mounted() {
-    // new BScroll(this.$refs.box);
-  },
-  // :to="{path:'/detailed'+item.id }"
   async created() {
     //   let data = await miaosha(0);
     //   console.log(data.data[0].AppSeckill.AppSeckillProList)

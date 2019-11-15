@@ -23,10 +23,7 @@
 <script>	
 import http from "@utils/request"
 import {allshopApi} from "@api/all_shop"
-import Vue from 'vue';
-import { IndexBar, IndexAnchor } from 'vant';
 
-Vue.use(IndexBar).use(IndexAnchor);
 	export default {
 		name:"Allshop",
 		data(){
@@ -34,7 +31,7 @@ Vue.use(IndexBar).use(IndexAnchor);
 			return{
 				id:"",
 				allshopList:[],
-				arr:{}
+				arr:[],
 			}
 
 		},
@@ -46,20 +43,22 @@ Vue.use(IndexBar).use(IndexAnchor);
 			}
 		},
 		created(){
-			
+			let da=this
 			this.$observer.$on("sendAll",(params)=>{
-				this.id=params
-				console.log(this.id,1111)
+				
+				da.id=params
+				
 			}),
-			http({
+			console.log(this.id)		
+			http({	
 		        method:"get",
 				url:"/BtCApi/List/GetSeriesListALL?",
 				data:{
-					ParentID:"1"
+					ParentID:2		
 				}
 		      }).then((data)=>{
 		      	this.allshopList=data.data.item_data
-		        console.log(this.allshopList[0].PinYin.substr(0,1).toUpperCase());
+		        console.log(this.allshopList);
 		      }).catch((err)=>{
 		        console.log(err);
 		      })
