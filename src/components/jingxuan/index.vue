@@ -1,7 +1,8 @@
 <template>
+<div>
   <div class="big">
     <div id="box" ref="box">
-      <!-- <div class="scrollbox"> -->
+      <div class="scrollbox">
         <router-link
           href="#"
           class="box_con"
@@ -15,7 +16,8 @@
           <span>{{item.ActivityMoney}}</span>
         </router-link>
       </div>
-    <!-- </div> -->
+    </div>
+  </div>
   </div>
 </template>
 
@@ -31,6 +33,10 @@ export default {
       pic: []
     };
   },
+  mounted() {
+    new BScroll(this.$refs.box);
+  },
+  // :to="{path:'/detailed'/+item.id }"
   async created() {
     //   let data = await miaosha(0);
     //   console.log(data.data[0].AppSeckill.AppSeckillProList)
@@ -65,3 +71,10 @@ export default {
   }
 };
 </script>
+<style >
+  .big{
+    height: 10rem;
+    overflow:auto;
+    padding-top: .2rem
+  }
+</style>
