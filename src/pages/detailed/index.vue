@@ -2,7 +2,7 @@
   <div class="page">
     <div class="select">
       <div class="back">&lt;</div>
-      <div class="title" v-for="item in pic" >{{item.ProductName}}</div>
+      <div class="title" v-for="item in pic" :key="item.id">{{item.ProductName}}</div>
     </div>
     <div class="list">
       <div class="list_con">商品</div>
@@ -82,104 +82,19 @@
         <i></i>
       </div>
       <ul class="pj_list">
-        <li>
+        <li v-for="item in mjpj" :key="item.ID">
           <div class="left">
-            <!-- <img src="img/21.png"> -->
+            <img src="http://m.gjw.com/images/avtar_com.png" />
           </div>
           <div class="right">
             <p>
-              华夏起名****
-              <b>银牌酒友</b>
+              {{item.Usr_NiceName}}
+              <b>{{item.Usr_LeveName}}</b>
             </p>
             <div>
-              <!-- <img src="img/22.png">
-                            <img src="img/22.png">
-                            <img src="img/22.png">
-                            <img src="img/22.png">
-              <img src="img/22.png">-->
-              <span>2019-10-15 20:15:44</span>
+              <span>{{item.CreateTime}}</span>
             </div>
-            <p>真的很不错 推荐大家购买！</p>
-          </div>
-        </li>
-        <li>
-          <div class="left">
-            <!-- <img src="img/21.png"> -->
-          </div>
-          <div class="right">
-            <p>
-              华夏起名****
-              <b>银牌酒友</b>
-            </p>
-            <div>
-              <!-- <img src="img/22.png">
-                            <img src="img/22.png">
-                            <img src="img/22.png">
-                            <img src="img/22.png">
-              <img src="img/22.png">-->
-              <span>2019-10-15 20:15:44</span>
-            </div>
-            <p>真的很不错 推荐大家购买！</p>
-          </div>
-        </li>
-        <li>
-          <div class="left">
-            <!-- <img src="img/21.png"> -->
-          </div>
-          <div class="right">
-            <p>
-              华夏起名****
-              <b>银牌酒友</b>
-            </p>
-            <div>
-              <!-- <img src="img/22.png">
-                            <img src="img/22.png">
-                            <img src="img/22.png">
-                            <img src="img/22.png">
-              <img src="img/22.png">-->
-              <span>2019-10-15 20:15:44</span>
-            </div>
-            <p>真的很不错 推荐大家购买！</p>
-          </div>
-        </li>
-        <li>
-          <div class="left">
-            <!-- <img src="img/21.png"> -->
-          </div>
-          <div class="right">
-            <p>
-              华夏起名****
-              <b>银牌酒友</b>
-            </p>
-            <div>
-              <!-- <img src="img/22.png">
-                            <img src="img/22.png">
-                            <img src="img/22.png">
-                            <img src="img/22.png">
-              <img src="img/22.png">-->
-              <span>2019-10-15 20:15:44</span>
-            </div>
-            <p>真的很不错 推荐大家购买！</p>
-          </div>
-        </li>
-        <li>
-          <div class="left">
-            <!-- <img src="img/21.png"> -->
-          </div>
-          <div class="right">
-            <p>
-              华夏起名****
-              <b>银牌酒友</b>
-            </p>
-            <div>
-              <!-- <img src="img/22.png">
-                            <img src="img/22.png">
-                            <img src="img/22.png">
-                            <img src="img/22.png">
-              <img src="img/22.png">-->
-              <span>2019-10-15 20:15:44</span>
-            </div>
-            <p>真的很不错 推荐大家购买！</p>
+            <p>{{item.Content}}</p>
           </div>
         </li>
       </ul>
@@ -195,12 +110,8 @@
       <div class="van_tab">规格参数</div>
       <div class="van_tab">包装售后</div>
     </div>
-    <div class="good_info">
-      <img src="http://img0.gjw.com/product/2019/1024/3a82e2f371b84761b32fd7dc8dafc4cf_4.jpg" />
-      <img src="http://img0.gjw.com/product/2019/1024/3a82e2f371b84761b32fd7dc8dafc4cf_4.jpg" />
-      <img src="http://img0.gjw.com/product/2019/1024/3a82e2f371b84761b32fd7dc8dafc4cf_4.jpg" />
-      <img src="http://img0.gjw.com/product/2019/1024/3a82e2f371b84761b32fd7dc8dafc4cf_4.jpg" />
-      <img src="http://img0.gjw.com/product/2019/1024/3a82e2f371b84761b32fd7dc8dafc4cf_4.jpg" />
+    <div class="good_info" v-for="item in bottom">
+      <img :src="item.Pic" />
     </div>
     <div class="footer">
       <a href="index.html">
@@ -219,37 +130,56 @@
 </template>
 
 <script>
-import { xq } from "@api/detailed";
+import { xq, pj } from "@api/detailed";
 export default {
   props: ["id"],
   data() {
     return {
       xqlist: [],
       pic: [],
-      // pic: {}
+      mjpj: [],
+      listpic: [],
+      bottom: []
     };
   },
   async created() {
-    console.log(this.id);
+    // console.log(this.id);
     this.handlePostList(this.id);
+    this.pj(this.id);
   },
   methods: {
+    async pj(proid) {
+      let data = await pj(proid);
+
+      this.mjpj = data.data;
+    },
     async handlePostList(Id) {
       let data = await xq(Id);
       this.xqlist = data.data;
-      console.log(this.xqlist);
-
+      this.listpic = data.data.listpic;
       this.handlePic(this.xqlist);
-      console.log(this.pic[0]);
+      // console.log(data.data.listpic);
+      // this.handleListPic(this.xqlist);
+      this.handleBottom();
+      console.log(this.bottom);
     },
     handlePic() {
       var obj = {};
       obj.Pic = " http://img0.gjw.com/product/" + this.xqlist.Pic;
       obj.ProductName = this.xqlist.ProductName;
-      obj.id = this.xqlist;
+      obj.id = this.id;
       this.pic.push(obj);
-      // this.pic.ProductName = this.xqlist.ProductName;
-      // this.pic.pic = " http://img0.gjw.com/product/" + this.xqlist.Pic;
+    },
+    handleBottom() {
+     
+      for (var i = 1; i < this.listpic.length; i++) {
+         var obj = {};
+        obj.Pic = "http://img0.gjw.com/product/" + this.listpic[i].Pic;
+        obj.id = this.listpic[i].id;
+        this.bottom.push(obj);
+        console.log(this.listpic[i].Pic)
+        console.log(this.bottom)
+      }
     }
   }
 };
@@ -308,8 +238,10 @@ export default {
   width: 100%;
   background: #fff;
   margin-top: 0.46rem;
+  background: #fff;
+  z-index: 20;
 }
-  
+
 .list .list_con {
   width: 33.3%;
   float: left;
@@ -586,6 +518,7 @@ export default {
   font-size: 0.14rem;
   line-height: 0.14rem;
   color: #666;
+  overflow: hidden;
 }
 .pj .pj_list li .right p b {
   font-size: 0.12rem;
@@ -648,8 +581,7 @@ export default {
 }
 .good_info {
   width: 100%;
-  padding-bottom: 0.5rem;
-  /*margin-bottom:0.5rem;*/
+  display: block;
 }
 .good_info img {
   height: 3.75rem;

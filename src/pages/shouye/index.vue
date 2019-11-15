@@ -35,6 +35,13 @@
     <!-- 第四部分 -->
     <div class="time">
       <span>掌上秒杀</span>
+      <van-count-down :time="time">
+        <template v-slot="timeData">
+          <span class="item">{{ timeData.hours }}</span>
+          <span class="item">{{ timeData.minutes }}</span>
+          <span class="item">{{ timeData.seconds }}</span>
+        </template>
+      </van-count-down>
     </div>
     <div class="box">
       <div class="good">
@@ -174,7 +181,16 @@ export default {
 </script>
 <style >
 /* 第一部分 */
-
+.item {
+  display: inline-block;
+  width: 22px;
+  height: 0.44rem;
+  margin-right: 5px;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  background-color: #1989fa;
+}
 body,
 .page {
   overflow: auto;
@@ -307,7 +323,7 @@ body,
   text-overflow: ellipsis;
   /* white-space: nowrap; */
   color: #000;
-   /* -webkit-line-clamp:2;
+  /* -webkit-line-clamp:2;
   word-break:break-all;
    display:-webkit-box;
     -webkit-box-orient:vertical; */
