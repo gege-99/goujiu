@@ -448,7 +448,7 @@ body,
 #box {
   width: 3.65rem;
   margin-left: 0.05rem;
-  height: 27.19rem;
+  height: 20.19rem;
   justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
@@ -457,7 +457,7 @@ body,
 .scrollbox {
   width: 3.65rem;
   margin-left: 0.05rem;
-  min-height: 2rem;
+  /* min-height: 2rem; */
   justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
