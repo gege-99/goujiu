@@ -57,35 +57,35 @@ export default {
     return {
       navs: [
         {
-          id: 0,
-          text: "首页",
-          icon: "&#xe665;",
-          path: "/shouye"
-        },
-        {
-          id: 1,
-          text: "分类",
-          icon: "&#xe7f9;",
-          path: "/kind"
-        },
-        {
-          id: 2,
-          text: "专享福利",
-          icon: "&#xe627;",
-          path: "/fuli"
-        },
-        {
-          id: 3,
-          text: "购物车",
-          icon: "&#xe625;",
-          path: "/cart"
-        },
-        {
-          id: 4,
-          text: "我的",
-          icon: "&#xe636;",
-          path: "/mine"
-        }
+            id:0,
+            text:"首页",
+            icon:"&#xe626;",
+            path:"/shouye",
+          },
+          {
+            id:1,
+            text:"分类",
+            icon:"&#xe7f9;",
+            path:"/search",
+          },
+          {
+            id:2,
+            text:"专享福利",
+            icon:"&#xe600;",
+            path:"/welfare-in",
+          },
+          {
+            id:3,
+            text:"购物车",
+            icon:"&#xe6f2;",
+            path:"/shopcar",
+          },
+          {
+            id:4,
+            text:"我的",
+            icon:"&#xe66e;",
+            path:"/mine",
+          },
       ]
     };
   }

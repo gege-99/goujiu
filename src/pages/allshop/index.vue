@@ -9,7 +9,7 @@
 				<div class="title">
 					B
 				</div>
-				<div class="list_home_shop" v-for="item in allshopList" :key="item">
+				<div class="list_home_shop" v-for="item in allshopList">
 					<div>{{item.TypeName}}</div>
 				</div>
 			</div>
@@ -23,18 +23,7 @@
 <script>	
 import http from "@utils/request"
 import {allshopApi} from "@api/all_shop"
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-import Vue from 'vue';
-import { IndexBar, IndexAnchor } from 'vant';
-
-Vue.use(IndexBar).use(IndexAnchor);
->>>>>>> 6554946ebb51c1d48f766c80631338ac4fdb6a69
-=======
-
->>>>>>> gt
 	export default {
 		name:"Allshop",
 		data(){

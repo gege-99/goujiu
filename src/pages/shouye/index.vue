@@ -27,10 +27,10 @@
       <img src="http://img0.gjw.com/famous/2018/0713/229cbdd4a909417ba6218c7e21b48131.jpg" alt />
       <img src="http://img0.gjw.com/famous/2018/0713/b0041913b9844e519782312fa1c66118.jpg" alt />
       <img src="http://img0.gjw.com/famous/2018/0713/b0041913b9844e519782312fa1c66118.jpg" alt />
-      <img src="http://img0.gjw.com/famous/2018/0713/07223d7582de4438875efedac3d9cd90.jpg" alt />
+      <img src="http://img0.gjw.com/famous/2018/0713/07223d7582de4438875efedac3d9cd90.jpg" :to="this.setshop" />
       <img src="http://img0.gjw.com/famous/2018/0713/c7ee25ce88144ebe9f1c743c64df2000.jpg" alt />
       <img src="http://img0.gjw.com/famous/2018/0801/8fccd4a2c00947869641bd32c0a4c42f.jpg" alt />
-      <img src="http://img0.gjw.com/famous/2018/0801/a4b34eda8bc24782994a4d86cd2528ce.jpg" alt />
+      <img src="http://img0.gjw.com/famous/2018/0801/a4b34eda8bc24782994a4d86cd2528ce.jpg" :to="this.newshop" />
     </div>
     <!-- 第四部分 -->
     <div class="time">
@@ -131,9 +131,12 @@ export default {
   name: "shouye",
   data() {
     return {
+      newpath:"/newshop",
+      setpath:"/set",
       naeList: [],
       pic: [],
-      miaosha: []
+      miaosha: [],
+      
     };
   },
   async created() {
