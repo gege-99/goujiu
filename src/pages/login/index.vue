@@ -79,7 +79,7 @@ html{
 	font-size:0.16rem;
 }
 .onload .on_body{
-	height:2.35rem;
+	height:2.45rem;
 	width:100%;
 	color:#666;
 	font-size:0.14rem;

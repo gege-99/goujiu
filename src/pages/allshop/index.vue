@@ -6,8 +6,8 @@
 		</div>
 		<div class="list_home-shopname">
 			<div class="box">
-				<div class="title">
-					B
+				<div class="all_title">
+					A
 				</div>
 				<div class="list_home_shop" v-for="item in allshopList">
 					<div>{{item.TypeName}}</div>
@@ -43,10 +43,9 @@ import {allshopApi} from "@api/all_shop"
 			}
 		},
 		created(){
-			let da=this
 			this.$observer.$on("sendAll",(params)=>{
 				
-				da.id=params
+				this.id=params
 				
 			}),
 			console.log(this.id)		
@@ -116,7 +115,7 @@ html {
 	width:100%;
 	color:#525252;
 }
-.list_home-shopname .box .title{
+.list_home-shopname .box .all_title{
 	height:0.35rem;
 	width:98%;
 	margin:0 auto;
